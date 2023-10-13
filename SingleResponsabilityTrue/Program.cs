@@ -28,7 +28,7 @@ namespace SingleResponsabilityTrue
                         int productCode = Helper.ReadIntFromConsole("Код товара: "); //Не жесткий
                         double price = Helper.ReadDoubleFromConsole("Цена: ");
                         int quantity = Helper.ReadIntFromConsole("Количество: ");
-                        inventory.AddProduct(name, productCode, price, quantity);
+                        inventory.AddProduct(new Product(name, productCode, price, quantity));
                         break;
 
                     case 2:

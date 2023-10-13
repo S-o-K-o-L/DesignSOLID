@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace DesignTrue
+namespace OpenClosedFalse
 {
-    public class Inventory
+    public class Inventory 
     {
         List<Product> products;
 
@@ -12,7 +11,7 @@ namespace DesignTrue
             products = new List<Product>();
         }
 
-        public void AddProduct(Product product)
+        public void AddProduct(Product product) //Изменение
         {
             products.Add(product);
         }
@@ -31,26 +30,19 @@ namespace DesignTrue
             }
         }
 
-        public void PrintProductInfo(int productCode)
+        public string GetProductInfo(int productCode)
         {
             var product = products.Find(p => p.ProductCode == productCode);
             if (product != null)
             {
-                Console.WriteLine(product.ToString());
+                return product.ToString();
             }
-            else
-            {
-                Console.WriteLine("Товар не найден.");
-            }
+            return "Товар не найден.";
         }
 
-        public void PrintAllProducts()
+        public List<Product> GetAllProducts()
         {
-            foreach (var product in products)
-            {
-                Console.WriteLine(product.ToString());
-                Console.WriteLine();
-            }
+            return products;
         }
 
         public int CountProducts()

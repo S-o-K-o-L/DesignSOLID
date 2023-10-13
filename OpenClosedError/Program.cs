@@ -7,7 +7,7 @@
 //как добавлять, удалять, обновлять, искать товары, выводить список товаров,
 //а также подсчитывать общее количество и стоимость товаров.
 
-namespace SingleResponsabilityError
+namespace OpenClosedFalse
 {
     internal class Program
     {
@@ -28,7 +28,8 @@ namespace SingleResponsabilityError
                         int productCode = Helper.ReadIntFromConsole("Код товара: "); //Не жесткий
                         double price = Helper.ReadDoubleFromConsole("Цена: ");
                         int quantity = Helper.ReadIntFromConsole("Количество: ");
-                        inventory.AddProduct(new Product(name, productCode, price, quantity));
+                        double discount = Helper.ReadDoubleFromConsole("Скидка: ");
+                        inventory.AddProduct(new Product(name, productCode, price, quantity, discount)); //Изменение
                         break;
 
                     case 2:
@@ -44,11 +45,12 @@ namespace SingleResponsabilityError
 
                     case 4:
                         int codeToPrint = Helper.ReadIntFromConsole("Введите код товара для вывода информации: ");
-                        inventory.PrintProductInfo(codeToPrint); //SRP нарушение
+                        InfoAboutInventory.PrintToConsoleInfoAboutItemInInventory( //SRP
+                            inventory.GetProductInfo(codeToPrint));
                         break;
 
                     case 5:
-                        inventory.PrintAllProducts(); //SRP нарушение
+                        InfoAboutInventory.PrintToConsoleInfoAboutAllInventory(inventory.GetAllProducts()); //SRP
                         break;
 
                     case 6:

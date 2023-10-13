@@ -7,7 +7,7 @@
 //как добавлять, удалять, обновлять, искать товары, выводить список товаров,
 //а также подсчитывать общее количество и стоимость товаров.
 
-namespace SingleResponsabilityError
+namespace OpenClosedTrue
 {
     internal class Program
     {
@@ -19,13 +19,13 @@ namespace SingleResponsabilityError
             {
                 DisplayMenu();
                 Console.Write("Выберите действие: ");
-                choice = Helper.ReadIntBetweenFromConsole(1, 8, "Введите число в диапазоне от 1 до 8: ");
+                choice = Helper.ReadIntBetweenFromConsole(1, 9, "Введите число в диапазоне от 1 до 9: ");
                 switch (choice)
                 {
                     case 1:
                         Console.Write("Наименование товара: ");
                         string name = Console.ReadLine();
-                        int productCode = Helper.ReadIntFromConsole("Код товара: "); //Не жесткий
+                        int productCode = Helper.ReadIntFromConsole("Код товара: ");
                         double price = Helper.ReadDoubleFromConsole("Цена: ");
                         int quantity = Helper.ReadIntFromConsole("Количество: ");
                         inventory.AddProduct(new Product(name, productCode, price, quantity));
@@ -44,11 +44,12 @@ namespace SingleResponsabilityError
 
                     case 4:
                         int codeToPrint = Helper.ReadIntFromConsole("Введите код товара для вывода информации: ");
-                        inventory.PrintProductInfo(codeToPrint); //SRP нарушение
+                        InfoAboutInventory.PrintToConsoleInfoAboutItemInInventory( //SRP
+                            inventory.GetProductInfo(codeToPrint));
                         break;
 
                     case 5:
-                        inventory.PrintAllProducts(); //SRP нарушение
+                        InfoAboutInventory.PrintToConsoleInfoAboutAllInventory(inventory.GetAllProducts()); //SRP
                         break;
 
                     case 6:
@@ -59,7 +60,18 @@ namespace SingleResponsabilityError
                         Console.WriteLine($"Общая стоимость товаров: {inventory.CalculateTotalValue()}");
                         break;
 
-                    case 8:
+                    case 8: //Расширение
+                        Console.Write("Наименование товара со скидкой: ");
+                        string nameDiscount = Console.ReadLine();
+                        int productCodeDiscount = Helper.ReadIntFromConsole("Код товара: ");
+                        double priceDiscount = Helper.ReadDoubleFromConsole("Цена: ");
+                        int quantityDiscount = Helper.ReadIntFromConsole("Количество: ");
+                        double discount = Helper.ReadDoubleFromConsole("Скидка: ");
+                        inventory.AddProduct(new DiscountedProduct(nameDiscount, productCodeDiscount, priceDiscount,
+                            quantityDiscount, discount));
+                        break;
+
+                    case 9:
                         Console.WriteLine("Выход.");
                         break;
 
@@ -67,7 +79,7 @@ namespace SingleResponsabilityError
                         Console.WriteLine("Неверный выбор. Пожалуйста, выберите корректную опцию.");
                         break;
                 }
-            } while (choice != 8);
+            } while (choice != 9);
         }
 
         public static void DisplayMenu()
@@ -79,7 +91,8 @@ namespace SingleResponsabilityError
             Console.WriteLine("5. Вывести список всех товаров");
             Console.WriteLine("6. Подсчитать количество товаров");
             Console.WriteLine("7. Подсчитать общую стоимость товаров");
-            Console.WriteLine("8. Выход");
+            Console.WriteLine("8. Добавить товар со скидкой");
+            Console.WriteLine("9. Выход");
         }
     }
 }

@@ -13,9 +13,9 @@ namespace SingleResponsabilityError
             products = new List<Product>();
         }
 
-        public void AddProduct(string name, int productCode, double price, int quantity)
+        public void AddProduct(Product product)
         {
-            products.Add(new Product(name, productCode, price, quantity));
+            products.Add(product);
         }
 
         public void RemoveProduct(int productCode)

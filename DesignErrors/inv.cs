@@ -13,9 +13,9 @@ namespace DesignErrors
             pr = new List<rp>();
         }
 
-        public void adpr(string name, int productCode, double price, int quantity)
+        public void adpr(rp p)
         {
-            pr.Add(new rp(name, productCode, price, quantity));
+            pr.Add(p);
         }
 
         public void remp(int productCode)

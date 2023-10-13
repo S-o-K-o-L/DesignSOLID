@@ -77,7 +77,7 @@ namespace DesignErrors
                                 Console.WriteLine("Некорректный ввод. Пожалуйста, введите целое число или в правильном диапазоне.");
                             }
                         } while (!validInput2);
-                        i.adpr(nm, prc, ice, ant); //Добавление товара
+                        i.adpr(new rp(nm, prc, ice, ant)); //Добавление товара
                         break;
 
                     case 2:
