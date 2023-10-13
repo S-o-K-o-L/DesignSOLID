@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignErrors", "DesignError
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTrue", "DesignTrue\DesignTrue.csproj", "{C857EA32-B6CD-400F-B751-9E2DEA0BF62B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleResponsabilityTrue", "SingleResponsabilityTrue\SingleResponsabilityTrue.csproj", "{F834F254-7665-4664-8AD0-9C8C7AF9FCBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleResponsabilityError", "SingleResponsabilityError\SingleResponsabilityError.csproj", "{F3F3846E-2F7D-4B4B-B1F8-F3DEEE405D0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{C857EA32-B6CD-400F-B751-9E2DEA0BF62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C857EA32-B6CD-400F-B751-9E2DEA0BF62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C857EA32-B6CD-400F-B751-9E2DEA0BF62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F834F254-7665-4664-8AD0-9C8C7AF9FCBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F834F254-7665-4664-8AD0-9C8C7AF9FCBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F834F254-7665-4664-8AD0-9C8C7AF9FCBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F834F254-7665-4664-8AD0-9C8C7AF9FCBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F3846E-2F7D-4B4B-B1F8-F3DEEE405D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F3846E-2F7D-4B4B-B1F8-F3DEEE405D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F3846E-2F7D-4B4B-B1F8-F3DEEE405D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F3846E-2F7D-4B4B-B1F8-F3DEEE405D0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
